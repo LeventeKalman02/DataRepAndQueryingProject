@@ -1,16 +1,17 @@
+//add axios
+const axios = require('axios');
+
 //setting express
 const express = require('express');
 const app = express();
 const port = 4000;
-
 
 //setting cors to server
 const cors = require('cors');
 app.use(function (req, res, next) {
 res.header("Access-Control-Allow-Origin", "*");
 res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-res.header("Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept");
+res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 next();
 });
 
@@ -39,15 +40,40 @@ const bookSchema = new mongoose.Schema({
     author: String
 });
 
+
 //adds ability to add books and query them
 const bookModel = mongoose.model('books', bookSchema);
 
 //////////////////TESTING DATABASE//////////////////
 
-//listening at local host 3000 for http request
+//listening at local host 4000 for http request
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
+
+
+//get the api from the external http link and send it to the client
+app.get('/api/getquote', (req, res) => {
+    axios.get('https://zenquotes.io/api/random').then(response => {
+        // console.log(response.data);
+        res.send(response.data);
+    }).catch(error => {
+        // console.log(error.data);
+        res.send(error.data);
+    });
+});
+
+//get the api from the external http link and send it to the client
+app.get('/api/getdailyquote', (req, res) => {
+    axios.get('https://zenquotes.io/api/today').then(response => {
+        // console.log(response.data);
+        res.send(response.data);
+    }).catch(error => {
+        // console.log(error.data);
+        res.send(error.data);
+    });
+});
+
 
 //listen for requests coming in
 app.listen(port, () => {
