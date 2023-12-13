@@ -25,31 +25,38 @@ const mongoose = require('mongoose');
 
 main().catch(err => console.log(err));
 
+//linking to database
 async function main() {
     await mongoose.connect('mongodb+srv://admin:admin@leventekalman.bwavlir.mongodb.net/ProjectDB?retryWrites=true&w=majority');
-
-    // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
 }
 
-//////////////////TESTING DATABASE//////////////////
-
 //adding the book to the cloud database
-const bookSchema = new mongoose.Schema({
-    title: String,
-    cover: String,
-    author: String
+const QuoteSchema = new mongoose.Schema({
+    quoteTitle: String,
+    quoteAuthor: String
 });
 
-
 //adds ability to add books and query them
-const bookModel = mongoose.model('books', bookSchema);
-
-//////////////////TESTING DATABASE//////////////////
+const quoteModel = mongoose.model('quotes', QuoteSchema);
 
 //listening at local host 4000 for http request
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
+
+//used to parse the body of a http request
+//gets the data from create when details are entered and output to console
+app.post('/api/quotes', (req, res) =>{
+    //callback function
+      console.log(req.body);
+      //writing data to the database
+      quoteModel.create({
+        quoteTitle: req.body.quoteTitle,
+        quoteAuthor: req.body.quoteAuthor
+      })
+      .then(()=>{res.send("Book added successfully")})
+      .catch(()=>(res.send("Error adding book")));
+  });
 
 
 //get the api from the external http link and send it to the client
