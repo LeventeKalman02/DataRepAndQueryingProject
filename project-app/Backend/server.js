@@ -46,7 +46,7 @@ app.get('/', (req, res) => {
 
 //used to parse the body of a http request
 //gets the data from create when details are entered and output to console
-app.post('/api/quotes', (req, res) =>{
+app.post('/quoteapi/quotes', (req, res) =>{
     //callback function
       console.log(req.body);
       //writing data to the database
@@ -56,11 +56,19 @@ app.post('/api/quotes', (req, res) =>{
       })
       .then(()=>{res.send("Book added successfully")})
       .catch(()=>(res.send("Error adding book")));
-  });
+});
+
+//get all the records from database and set it to quotes variable asyncronously
+app.get('/quoteapi/quotes', async(req, res) =>{
+
+    //search database and bring back all records
+    let quotes = await quoteModel.find({});
+    res.json(quotes);
+});
 
 
 //get the api from the external http link and send it to the client
-app.get('/api/getquote', (req, res) => {
+app.get('/quoteapi/getquote', (req, res) => {
     axios.get('https://zenquotes.io/api/random').then(response => {
         // console.log(response.data);
         res.send(response.data);
@@ -71,7 +79,7 @@ app.get('/api/getquote', (req, res) => {
 });
 
 //get the api from the external http link and send it to the client
-app.get('/api/getdailyquote', (req, res) => {
+app.get('/quoteapi/getdailyquote', (req, res) => {
     axios.get('https://zenquotes.io/api/today').then(response => {
         // console.log(response.data);
         res.send(response.data);

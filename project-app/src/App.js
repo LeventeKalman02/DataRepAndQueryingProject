@@ -20,7 +20,8 @@ function App() {
             <Nav className="me-auto">
               {/* link to each element on the navbar and add the names */}
               <Nav.Link href="/getQuotes">Get Quotes</Nav.Link>
-              <Nav.Link href="/addfavourite">Save Favourite Quotes</Nav.Link>
+              <Nav.Link href="/savedQuotes">Saved Quotes</Nav.Link>
+              <Nav.Link href="/addfavourite">Save This Quote</Nav.Link>
             </Nav>
           </Container>
         </Navbar>
@@ -30,6 +31,7 @@ function App() {
           <Route path='/home' element={<Content></Content>}></Route>
           <Route path='/getQuotes' element={<GetApiQuotes></GetApiQuotes>}></Route>
           <Route path='/addfavourite' element={<AddFav></AddFav>}></Route>
+          <Route path='/savedQuotes' element={<Content></Content>}></Route>
         </Routes>
 
       </div>

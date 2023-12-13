@@ -3,7 +3,7 @@ import axios from 'axios';
 function GetApiQuotes(){
     //gets a random quote from the api
     const getQuote = () => {
-        axios.get('http://localhost:4000/api/getquote')
+        axios.get('http://localhost:4000/quoteapi/getquote')
             .then(response => {
                 console.log(response.data);
 
@@ -20,7 +20,7 @@ function GetApiQuotes(){
 
     //gets the daily quote from the api
     const getDailyQuote = () => {
-        axios.get('http://localhost:4000/api/getdailyquote')
+        axios.get('http://localhost:4000/quoteapi/getdailyquote')
             .then(response => {
                 console.log(response.data);
 
