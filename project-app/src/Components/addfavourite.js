@@ -19,7 +19,7 @@ function AddFav(){
             quoteAuthor:quoteAuthor
         }
 
-        axios.post('http://localhost:4000/api/quotes',quoteSaveData)
+        axios.post('http://localhost:4000/quoteapi/quotes',quoteSaveData)
         .then()
         .catch();
     }

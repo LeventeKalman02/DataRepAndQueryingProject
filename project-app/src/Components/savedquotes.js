@@ -1,7 +1,8 @@
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Quotes from './quotes';
 
-function readQuotes(){
+function SavedQuotes(){
 
     /* create the data and setData methods to use below to display the quotes array */
     const [quoteData, setQuoteData] = useState([]);
@@ -13,8 +14,9 @@ function readQuotes(){
             axios.get('http://localhost:4000/quoteapi/quotes')
             .then(/* callback function */
                 (response)=>{/* get the data response from the http */
-                setQuoteData(response.quoteData)/* pass the data to setData to display the quotes array */
-                }
+                setQuoteData(response.data)/* pass the data to setQuoteData to display the quotes array */
+                console.log(response.data)
+            }
             )
             .catch(/* display the error in the console if there is one */
                 (error)=>{
@@ -26,11 +28,11 @@ function readQuotes(){
 
     return(
         <div>
-            <Books myQuotes = {quoteData}></Books>
-
+            <Quotes myQuotes = {quoteData}></Quotes>
+            {console.log(quoteData)}
         </div>
     );
 
 }
 
-export default readQuotes;
+export default SavedQuotes;

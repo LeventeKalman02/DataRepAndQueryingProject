@@ -1,16 +1,16 @@
 import Card from 'react-bootstrap/Card';
 
-function quoteItem(items) {
+function QuoteItem(items) {
     return(
         <div>
             <Card>
                 {/* add and display the title, image, and author */}
-                <Card.Header>{items.myQuotes.quoteTitle}</Card.Header>
+                <Card.Header>{items.myQuote.quoteTitle}</Card.Header>
                 <Card.Body>
                     <blockquote className="blockquote mb-0">
-                        <img src={items.myQuotes.image}></img>
+                        <img src={items.myQuote.image}></img>
                         <footer>
-                            {items.myQuotes.quoteAuthor}
+                            {items.myQuote.quoteAuthor}
                         </footer>
                     </blockquote>
                 </Card.Body>
@@ -20,4 +20,4 @@ function quoteItem(items) {
     );
 }
 
-export default quoteItem;
+export default QuoteItem;

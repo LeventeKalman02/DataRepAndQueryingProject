@@ -39,11 +39,6 @@ const QuoteSchema = new mongoose.Schema({
 //adds ability to add books and query them
 const quoteModel = mongoose.model('quotes', QuoteSchema);
 
-//listening at local host 4000 for http request
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
-
 //used to parse the body of a http request
 //gets the data from create when details are entered and output to console
 app.post('/quoteapi/quotes', (req, res) =>{
@@ -60,12 +55,13 @@ app.post('/quoteapi/quotes', (req, res) =>{
 
 //get all the records from database and set it to quotes variable asyncronously
 app.get('/quoteapi/quotes', async(req, res) =>{
-
     //search database and bring back all records
     let quotes = await quoteModel.find({});
     res.json(quotes);
 });
 
+//////EXETRNAL API/////
+//////////////////////////////////////////////////////////////////////////
 
 //get the api from the external http link and send it to the client
 app.get('/quoteapi/getquote', (req, res) => {
@@ -89,6 +85,7 @@ app.get('/quoteapi/getdailyquote', (req, res) => {
     });
 });
 
+//////////////////////////////////////////////////////////////////////////
 
 //listen for requests coming in
 app.listen(port, () => {

@@ -1,10 +1,10 @@
-import quoteItem from './quoteitems';
+import QuoteItem from "./quoteitems";
 
 function Quotes(items){
 
-    return items.myQuote.map(
+    return items.myQuotes.map(
         (quote)=>{
-            return <quoteItem myQuote = {quote} key= {quote._id}></quoteItem>
+            return <QuoteItem myQuote = {quote} key= {quote._id}></QuoteItem>
         }
     );
 }

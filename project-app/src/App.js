@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Content from './Components/mainpage';
 import AddFav from './Components/addfavourite';
+import SavedQuotes from './Components/savedquotes';
 import GetApiQuotes from './Components/getquotes';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
@@ -31,7 +32,7 @@ function App() {
           <Route path='/home' element={<Content></Content>}></Route>
           <Route path='/getQuotes' element={<GetApiQuotes></GetApiQuotes>}></Route>
           <Route path='/addfavourite' element={<AddFav></AddFav>}></Route>
-          <Route path='/savedQuotes' element={<Content></Content>}></Route>
+          <Route path='/savedQuotes' element={<SavedQuotes></SavedQuotes>}></Route>
         </Routes>
 
       </div>
