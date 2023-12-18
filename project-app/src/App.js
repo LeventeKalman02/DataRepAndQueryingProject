@@ -18,7 +18,7 @@ function App() {
         {/* Add the Navbar */}
         <Navbar bg="dark" data-bs-theme="dark">
           <Container>
-            <Navbar.Brand href="home">FreeInspirationalQuotes</Navbar.Brand>
+            <Navbar.Brand href="/getQuotes">FreeInspirationalQuotes</Navbar.Brand>
             <Nav className="me-auto">
               {/* link to each element on the navbar and add the names */}
               <Nav.Link href="/getQuotes">Get Quotes</Nav.Link>
@@ -30,7 +30,7 @@ function App() {
 
         {/* add the routing path for each element and link to component*/}
         <Routes>
-          <Route path='/home' element={<Content></Content>}></Route>
+          <Route path='/getQuotes' element={<GetApiQuotes></GetApiQuotes>}></Route>
           <Route path='/getQuotes' element={<GetApiQuotes></GetApiQuotes>}></Route>
           <Route path='/addfavourite' element={<AddFav></AddFav>}></Route>
           <Route path='/savedQuotes' element={<SavedQuotes></SavedQuotes>}></Route>

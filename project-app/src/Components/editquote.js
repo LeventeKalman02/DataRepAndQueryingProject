@@ -48,7 +48,6 @@ export default function EditQuote() {
     }
     return (
         <div>
-            <h2>Hello from Edit component!</h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Edit Quote Title: </label>
@@ -78,6 +77,7 @@ export default function EditQuote() {
                 </div>
 
                 <div>
+                    <br/>
                     <input type="submit"
                         value="Edit Quote">
                     </input>

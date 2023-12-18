@@ -31,11 +31,7 @@ function GetApiQuotes(){
             })
             .catch(error => console.warn(error));
     };
-
-    // window.onload = () => {
-    //     document.getElementById("author").value = localStorage.getItem("author");
-    // };
-
+    
     return(
         <div>
             <p id='quote'></p>
