@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import Content from './Components/mainpage';
 import AddFav from './Components/addfavourite';
 import SavedQuotes from './Components/savedquotes';
 import GetApiQuotes from './Components/getquotes';

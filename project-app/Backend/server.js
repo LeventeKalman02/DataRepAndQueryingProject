@@ -30,14 +30,14 @@ async function main() {
     await mongoose.connect('mongodb+srv://admin:admin@leventekalman.bwavlir.mongodb.net/ProjectDB?retryWrites=true&w=majority');
 }
 
-//adding the book to the cloud database
+//adding the quote to the cloud database
 const QuoteSchema = new mongoose.Schema({
     "title": String,
     "author": String,
     "quote": String
 });
 
-//adds ability to add books and query them
+//adds ability to add quotes and query them
 const quoteModel = mongoose.model('quotes', QuoteSchema);
 
 //used to parse the body of a http request

@@ -8,7 +8,7 @@ function QuoteItem(items) {
         <div>
             <br></br>
             <Card>
-                {/* add and display the title, image, and author */}
+                {/* add and display the title, quote, and author */}
                 <Card.Header><h2>{items.myQuote.title}</h2></Card.Header>
                 <Card.Body>
                     <blockquote className="blockquote mb-0">
@@ -23,7 +23,7 @@ function QuoteItem(items) {
 
                             axios.delete('http://localhost:4000/quoteapi/quotes/' + items.myQuote._id)
                                 .then((res) => {
-                                    //reload the page after deleting the book
+                                    //reload the page after deleting the quote
                                     let reload = items.Reload();
                                 })
                                 .catch();

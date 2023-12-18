@@ -37,6 +37,7 @@ export default function EditQuote() {
             "quote": quote
         }
 
+        
         axios.put('http://localhost:4000/quoteapi/quote/'+id, quotes)
             .then((res) => {
                 navigate('/savedquotes');

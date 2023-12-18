@@ -42,7 +42,7 @@ function AddFav(){
                         onChange={(e) => { setQuoteTitle(e.target.value) }}>{/* when event changes run setQuoteTitle */}
                     </input>
                 </div>            
-                <div className="form-group">{/* add a new book author */}
+                <div className="form-group">{/* add a new quote author */}
                     <label>Quote Author: </label>
                     <input disabled type="text"
                         id="quoteAuthorInput"
