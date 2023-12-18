@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function EditQuote() {
-    let { id } = useParams();
+    let {id} = useParams();
 
     const [title, setQuoteTitle] = useState('');
     const [author, setAuthor] = useState('');
@@ -14,7 +14,7 @@ export default function EditQuote() {
     useEffect(
         () => {
 
-            axios.get('http://localhost:4000/quoteapi/quote/' + id)
+            axios.get('http://localhost:4000/quoteapi/quote/'+id)
                 .then((response) => {
                     setQuoteTitle(response.data.title);
                     setQuote(response.data.quote);
@@ -37,7 +37,7 @@ export default function EditQuote() {
             "quote": quote
         }
 
-        axios.put('http://localhost:4000/quoteapi/quote/' + id, quotes)
+        axios.put('http://localhost:4000/quoteapi/quote/'+id, quotes)
             .then((res) => {
                 navigate('/savedquotes');
             })
@@ -59,18 +59,18 @@ export default function EditQuote() {
                     />
                 </div>
 
-                <div disabled className="form-group">
+                <div className="form-group">
                     <label>Quote Author: </label>
-                    <input type="text"
+                    <input disabled type="text"
                         className="form-control"
                         value={author}
                         onChange={(e) => { setAuthor(e.target.value) }}
                     />
                 </div>
 
-                <div disabled className="form-group">
+                <div className="form-group">
                     <label>Quote: </label>
-                    <input type="text"
+                    <input disabled type="text"
                         className="form-control"
                         value={quote}
                         onChange={(e) => { setQuote(e.target.value) }}

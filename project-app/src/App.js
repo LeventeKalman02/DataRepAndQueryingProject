@@ -34,7 +34,7 @@ function App() {
           <Route path='/getQuotes' element={<GetApiQuotes></GetApiQuotes>}></Route>
           <Route path='/addfavourite' element={<AddFav></AddFav>}></Route>
           <Route path='/savedQuotes' element={<SavedQuotes></SavedQuotes>}></Route>
-          <Route path='/editquote/:id' element={<EditQuote></EditQuote>}></Route>
+          <Route path='/edit/:id' element={<EditQuote></EditQuote>}></Route>
         </Routes>
 
       </div>

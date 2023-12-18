@@ -83,44 +83,11 @@ app.get('/quoteapi/quotes/:id', async (req, res) => {
     res.json(quotes);
 });
 
-
-/*
-//Show all items
-app.post('/api/quotes', async (req, res) => {
-    let quotes = await quoteModel.find({});
-    res.json(quotes);
-});
-
-//Create single item based on id
-app.post('/api/quote/:id', async (req, res) => {
-    quoteModel.create({
-        "title": req.body.title,
-        "author": req.body.author,
-        "quote": req.body.quote
-    })
-    .then(()=>{res.send("Success")})
-    .catch(()=>(res.send("Error")));
-});
-
-//Read single item based on id
-app.get('/api/quote/:id', async (req, res) => {
-    let quotes = await quoteModel.findById(req.params.id);
-    res.json(quotes);
-});
-
-//Update single item based on id
-app.put('/api/quote/:id', async (req, res) => {
-    let quotes = await quoteModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+app.get('/quoteapi/quote/:identifier', async (req, res) => {
+    console.log(req.params.identifier);
+    let quotes = await quoteModel.findById(req.params.identifier);
     res.send(quotes);
-});
-
-//Delete single item based on id
-app.delete('/api/quote/:id', async (req, res) => {
-    let quotes = await quoteModel.findByIdAndDelete(req.params.id);
-    res.send(quotes);
-});
-*/
-
+})
 
 //////EXETRNAL API/////
 //////////////////////////////////////////////////////////////////////////
