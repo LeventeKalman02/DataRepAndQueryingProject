@@ -5,7 +5,7 @@ import Quotes from './quotes';
 function SavedQuotes(){
 
     /* create the data and setData methods to use below to display the quotes array */
-    const [quoteData, setQuoteData] = useState([]);
+    const [data, setData] = useState([]);
 
     /* promise */
     useEffect(
@@ -14,8 +14,7 @@ function SavedQuotes(){
             axios.get('http://localhost:4000/quoteapi/quotes')
             .then(/* callback function */
                 (response)=>{/* get the data response from the http */
-                setQuoteData(response.data)/* pass the data to setQuoteData to display the quotes array */
-                console.log(response.data)
+                    setData(response.data)/* pass the data to setQuoteData to display the quotes array */
             }
             )
             .catch(/* display the error in the console if there is one */
@@ -26,10 +25,23 @@ function SavedQuotes(){
         }, []
     );
 
+    const Reload = (e) => {
+        axios.get('http://localhost:4000/quoteapi/quotes')
+            .then(/* callback function */
+                (response) => {/* get the data response from the http */
+                    setData(response.data)/* pass the data to setData to display the quotes array */
+                }
+            )
+            .catch(/* display the error in the console if there is one */
+                (error) => {
+                    console.log(error);
+                }
+            )
+    };
+
     return(
         <div>
-            <Quotes myQuotes = {quoteData}></Quotes>
-            {console.log(quoteData)}
+            <Quotes myQuotes={data} reloadData={Reload}></Quotes>
         </div>
     );
 

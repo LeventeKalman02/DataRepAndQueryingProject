@@ -7,6 +7,7 @@ import Content from './Components/mainpage';
 import AddFav from './Components/addfavourite';
 import SavedQuotes from './Components/savedquotes';
 import GetApiQuotes from './Components/getquotes';
+import EditQuote from './Components/editquote';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 
@@ -33,6 +34,7 @@ function App() {
           <Route path='/getQuotes' element={<GetApiQuotes></GetApiQuotes>}></Route>
           <Route path='/addfavourite' element={<AddFav></AddFav>}></Route>
           <Route path='/savedQuotes' element={<SavedQuotes></SavedQuotes>}></Route>
+          <Route path='/editquote/:id' element={<EditQuote></EditQuote>}></Route>
         </Routes>
 
       </div>

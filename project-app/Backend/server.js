@@ -55,12 +55,72 @@ app.post('/quoteapi/quotes', (req, res) =>{
       .catch(()=>(res.send("Error")));
 });
 
+//edit data in the database based off of id
+app.put('/quoteapi/quote/:id', async (req, res) => {
+    console.log("Update: " + req.params.id);
+    let quotes = await quoteModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    res.send(quotes);
+});
+
+//delete data from db based on id
+app.delete('/quoteapi/quotes/:id', async (req, res) => {
+    console.log("Delete: " + req.params.id);
+    let quotes = await quoteModel.findByIdAndDelete(req.params.id);
+    res.send(quotes);
+});
+
 //get all the records from database and set it to quotes variable asyncronously
 app.get('/quoteapi/quotes', async(req, res) =>{
     //search database and bring back all records
     let quotes = await quoteModel.find({});
     res.json(quotes);
 });
+
+//get a single record from the database based off the id
+app.get('/quoteapi/quotes/:id', async (req, res) => {
+    console.log(req.params.id);
+    let quotes = await quoteModel.findById(req.params.id);
+    res.json(quotes);
+});
+
+
+/*
+//Show all items
+app.post('/api/quotes', async (req, res) => {
+    let quotes = await quoteModel.find({});
+    res.json(quotes);
+});
+
+//Create single item based on id
+app.post('/api/quote/:id', async (req, res) => {
+    quoteModel.create({
+        "title": req.body.title,
+        "author": req.body.author,
+        "quote": req.body.quote
+    })
+    .then(()=>{res.send("Success")})
+    .catch(()=>(res.send("Error")));
+});
+
+//Read single item based on id
+app.get('/api/quote/:id', async (req, res) => {
+    let quotes = await quoteModel.findById(req.params.id);
+    res.json(quotes);
+});
+
+//Update single item based on id
+app.put('/api/quote/:id', async (req, res) => {
+    let quotes = await quoteModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    res.send(quotes);
+});
+
+//Delete single item based on id
+app.delete('/api/quote/:id', async (req, res) => {
+    let quotes = await quoteModel.findByIdAndDelete(req.params.id);
+    res.send(quotes);
+});
+*/
+
 
 //////EXETRNAL API/////
 //////////////////////////////////////////////////////////////////////////

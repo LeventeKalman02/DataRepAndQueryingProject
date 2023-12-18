@@ -21,8 +21,12 @@ function AddFav(){
             "quote":quote
         }
 
+        //sends the data to quoteSaveData and redirect the user to savedQuotes if successful
         axios.post('http://localhost:4000/quoteapi/quotes',quoteSaveData)
-        .then(response => console.log("RESPONSE", response))
+        .then(response => {
+            console.log("RESPONSE", response)
+            window.location.href = "/savedQuotes";
+        })
         .catch(error => console.error("ERROR", error));
     }
 
@@ -57,8 +61,9 @@ function AddFav(){
                 </div>
 
                 <div>{/* submit button */}
+                <br></br>
                     <input type="submit"
-                        value="Add Book">
+                        value="Save Quote!">
                     </input>
                 </div>
             </form>
