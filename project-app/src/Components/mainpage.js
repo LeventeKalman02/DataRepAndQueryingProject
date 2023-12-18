@@ -3,7 +3,6 @@
 //content of the main page
 function Content() {
 
-
     return (
         <div></div>
     );

@@ -32,8 +32,9 @@ async function main() {
 
 //adding the book to the cloud database
 const QuoteSchema = new mongoose.Schema({
-    quoteTitle: String,
-    quoteAuthor: String
+    "title": String,
+    "author": String,
+    "quote": String
 });
 
 //adds ability to add books and query them
@@ -46,11 +47,12 @@ app.post('/quoteapi/quotes', (req, res) =>{
       console.log(req.body);
       //writing data to the database
       quoteModel.create({
-        quoteTitle: req.body.quoteTitle,
-        quoteAuthor: req.body.quoteAuthor
+          "title": req.body.title,
+          "author": req.body.author,
+          "quote": req.body.quote
       })
-      .then(()=>{res.send("Book added successfully")})
-      .catch(()=>(res.send("Error adding book")));
+      .then(()=>{res.send("Success")})
+      .catch(()=>(res.send("Error")));
 });
 
 //get all the records from database and set it to quotes variable asyncronously
