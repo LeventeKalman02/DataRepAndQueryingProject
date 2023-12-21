@@ -29,7 +29,7 @@ function App() {
 
         {/* add the routing path for each element and link to component*/}
         <Routes>
-          <Route path='/getQuotes' element={<GetApiQuotes></GetApiQuotes>}></Route>
+          <Route path='/' element={<GetApiQuotes></GetApiQuotes>}></Route>
           <Route path='/getQuotes' element={<GetApiQuotes></GetApiQuotes>}></Route>
           <Route path='/addfavourite' element={<AddFav></AddFav>}></Route>
           <Route path='/savedQuotes' element={<SavedQuotes></SavedQuotes>}></Route>

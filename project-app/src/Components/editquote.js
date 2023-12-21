@@ -13,7 +13,7 @@ export default function EditQuote() {
 
     useEffect(
         () => {
-
+            //get the quote based on the id
             axios.get('http://localhost:4000/quoteapi/quote/'+id)
                 .then((response) => {
                     setQuoteTitle(response.data.title);
@@ -47,6 +47,7 @@ export default function EditQuote() {
                     console.log(error)
                 });
     }
+    // form for the updating of the quote in the database
     return (
         <div>
             <form onSubmit={handleSubmit}>
@@ -78,7 +79,7 @@ export default function EditQuote() {
                 </div>
 
                 <div>
-                    <br/>
+                    <br></br>
                     <input type="submit"
                         value="Edit Quote">
                     </input>

@@ -16,6 +16,7 @@ function QuoteItem(items) {
                         <p>- {items.myQuote.author}</p>
                         <br></br>
                     </blockquote>
+                    {/* edit and delete buttons */}
                     <Link to={'/edit/'+items.myQuote._id} className='btn btn-primary' style={{marginRight: 20 + 'px'}}>Edit Quote</Link>
                     <Button style={{marginLeft: 20 + 'px'}} variant='danger' onClick={
                         (e) => {

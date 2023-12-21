@@ -33,21 +33,18 @@ function GetApiQuotes(){
     };
     
     return(
-        <div>
+        <div class="page">
             <p id='quote'></p>
-            <br />
 
-            {/* button to get random quote */}
-            <button onClick={getQuote}>Click To Get A Random Inspirational Quote</button>
-            <br/>
-            <br/>
-            <button onClick={getDailyQuote}>Click To Get The Daily Inspirational Quote</button>
-            <br/>
-            <br/>
-            <a href="/addfavourite"><button>Save This Quote!</button></a>
+            {/* bootstrap buttons for styling */}
+            <div class="buttons">
+                <button class="btn btn-primary btn-lg" onClick={getQuote}>Click To Get A Random Inspirational Quote</button>
+                <button class="btn btn-primary btn-lg" onClick={getDailyQuote}>Click To Get The Daily Inspirational Quote</button>
+                <a class="btn btn-primary btn-lg" href="/addfavourite">Save This Quote!</a>
+            </div>
 
             {/* footer for the reference to the api  */}
-            <footer style={{ position: 'absolute', left: 0, right: 0, bottom: 0, height: "50px", backgroundColor: 'lightgray' }}>
+            <footer class="footer">
                 <a href="https://zenquotes.io/" target="_blank">Inspirational quotes provided by ZenQuotes API</a>
             </footer>
         </div>

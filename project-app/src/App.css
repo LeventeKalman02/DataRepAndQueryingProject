@@ -36,3 +36,44 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* styling the main page where you get the quotes */
+.page{
+  background-image: url('/public/zenimg.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: none;
+
+  text-align: center;
+  padding-top: 20%;
+  padding-left: 80px;
+  padding-right: 80px;
+
+  width: 100vw;
+  /* remove the scrolling by taking the size of the header from the height */
+  height: calc(100vh - 56px);
+}
+
+/* quote styling and outline */
+.page #quote{
+  font-size: 70px;
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+/* button styling */
+.page .buttons .btn{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+/* footer styling */
+.page .footer{
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  text-align: right;
+  padding-right: 20px;
+}
